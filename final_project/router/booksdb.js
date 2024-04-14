@@ -1,14 +1,65 @@
 let books = {
-      1: {"author": "Chinua Achebe","title": "Things Fall Apart", "reviews": {} },
-      2: {"author": "Hans Christian Andersen","title": "Fairy tales", "reviews": {} },
-      3: {"author": "Dante Alighieri","title": "The Divine Comedy", "reviews": {} },
-      4: {"author": "Unknown","title": "The Epic Of Gilgamesh", "reviews": {} },
-      5: {"author": "Unknown","title": "The Book Of Job", "reviews": {} },
-      6: {"author": "Unknown","title": "One Thousand and One Nights", "reviews": {} },
-      7: {"author": "Unknown","title": "Nj\u00e1l's Saga", "reviews": {} },
-      8: {"author": "Jane Austen","title": "Pride and Prejudice", "reviews": {} },
-      9: {"author": "Honor\u00e9 de Balzac","title": "Le P\u00e8re Goriot", "reviews": {} },
-      10: {"author": "Samuel Beckett","title": "Molloy, Malone Dies, The Unnamable, the trilogy", "reviews": {} }
-}
+      1: {
+          "author": "Chinua Achebe",
+          "title": "Things Fall Apart",
+          "isbn": "9780385474542",
+          "reviews": {}
+      },
+      2: {
+          "author": "Hans Christian Andersen",
+          "title": "Fairy Tales",
+          "isbn": "9781503261960",
+          "reviews": {}
+      },
+      3: {
+          "author": "Dante Alighieri",
+          "title": "The Divine Comedy",
+          "isbn": "9780142437223",
+          "reviews": {}
+      },
+      4: {
+          "author": "H.G. Wells",
+          "title": "The Epic of Gilgamesh",
+          "isbn": "9780140441000",
+          "reviews": {}
+      },
+      5: {
+          "author": "F. Scott Fitzgerald",
+          "title": "The Great Gatsby",
+          "isbn": "9780743273565",
+          "reviews": {}
+      },
+      6: {
+          "author": "Herman Melville",
+          "title": "Moby-Dick",
+          "isbn": "9780142437247",
+          "reviews": {}
+      },
+      7: {
+          "author": "Mary Shelley",
+          "title": "Frankenstein",
+          "isbn": "9780141439471",
+          "reviews": {}
+      },
+      8: {
+          "author": "Leo Tolstoy",
+          "title": "War and Peace",
+          "isbn": "9780199232765",
+          "reviews": {}
+      },
+      9: {
+          "author": "H.G. Wells",
+          "title": "The War of the Worlds",
+          "isbn": "9781853260322",
+          "reviews": {}
+      },
+      10: {
+          "author": "Charlotte Bronte",
+          "title": "Jane Eyre",
+          "isbn": "9780142437209",
+          "reviews": {}
+      }
+  };
+  
 
 module.exports=books;

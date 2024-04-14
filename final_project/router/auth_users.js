@@ -40,7 +40,7 @@ regd_users.post("/login", (req,res) => {
   if (authenticatedUser(username,password)) {
     let accessToken = jwt.sign({
       data: password
-    }, 'access', { expiresIn: 60 });
+    }, 'access', { expiresIn: 60*60 });
 
     req.session.authorization = {
       accessToken,username
@@ -53,27 +53,44 @@ regd_users.post("/login", (req,res) => {
 
 // Add a book review
 regd_users.put("/auth/review/:isbn", (req, res) => {
-  const isbn = req.params.isbn;
-  let book = books[isbn];
-  if (book){
-    let title = req.body.title;
-    let author = req.body.author;
-    let review = req.body.review;
-
-      if (title){
-        book["title"] = title
-      } else if (author) {
-        friends["author"] = author
-      } else if (review) {
-        friends["review"] = review
-      }
-
-      books[isbn]=book;
-      res.send(`Friend with the email  ${email} updated.`);
-  } else {
-    res.send("Unable to update");
-  }
+  const isbn = parseInt(req.params.isbn);
+  const review = req.body
   
+  const username = req.session.authorization.username;
+  
+  for (const id in books){
+    let book = books[id];
+    let book_isbn = parseInt(book.isbn)
+    if (isbn == book_isbn){
+      if (book.reviews[username]){
+        book.reviews[username] = review["id"];
+        return res.send("Review is updated succesfully");
+      } else {
+        book.reviews[username] = review["id"];
+        return res.send("Review is added succesfully");
+      }
+    }
+  }
+  return res.send("could not review by ISBN");
+});
+
+regd_users.delete("/auth/review/:isbn", (req, res) => {
+  const isbn = parseInt(req.params.isbn);
+  const username = req.session.authorization.username;
+
+  for (const id in books){
+    let book = books[id];
+    let book_isbn = parseInt(book.isbn)
+    if (isbn == book_isbn){
+      if (book.reviews[username]){
+        console.log(book.reviews[username])
+        delete book.reviews[username]
+        return res.send("Comment is deleted succesfully")
+      } else {
+        return res.send("Nothing to delete")
+      }
+    }
+  }
 });
 
 module.exports.authenticated = regd_users;
